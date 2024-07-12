@@ -1,0 +1,42 @@
+# /mmcblk0_image  emmc    /dev/block/by-name/mmcblk0                  flags=display="mmcblk0";backup=1
+# /mmcblk0boot0   emmc    /dev/block/by-name/mmcblk0boot0             flags=display="mmcblk0boot0";backup=1
+# /mmcblk0boot1   emmc    /dev/block/by-name/mmcblk0boot1             flags=display="mmcblk0boot1";backup=1
+# /mmcblk0rpmb    emmc    /dev/block/by-name/mmcblk0rpmb              flags=display="mmcblk0rpmb";backup=1
+/bota0          emmc    /dev/block/by-name/bota0                    flags=display="Boot OTA 0";backup=1;
+/bota1          emmc    /dev/block/by-name/bota1                    flags=display="Boot OTA 1";backup=1;subpartitionof=/bota0;
+/efs            ext4    /dev/block/by-name/efs                      flags=display="EFS";backup=1;
+/sec_efs        ext4    /dev/block/by-name/sec_efs                  flags=display="SEC EFS";backup=1;subpartitionof=/efs;
+/cpefs          ext4    /dev/block/by-name/cpefs                    flags=display="CPEFS";backup=1;subpartitionof=/efs;
+/bota2          emmc    /dev/block/by-name/bota2                    flags=display="Boot OTA 2";backup=1;subpartitionof=/bota0;
+/cm             emmc    /dev/block/by-name/cm                       flags=display="CM";backup=1;
+/m9kefs1        emmc    /dev/block/by-name/m9kefs1                  flags=backup=1;subpartitionof=/efs;
+/m9kefs2        emmc    /dev/block/by-name/m9kefs2                  flags=backup=1;subpartitionof=/efs;
+/m9kefs3        emmc    /dev/block/by-name/m9kefs3                  flags=backup=1;subpartitionof=/efs;
+/nad_refer      emmc    /dev/block/by-name/nad_refer                flags=display="NAD Refer";backup=1;
+/param          emmc    /dev/block/by-name/param                    flags=display="Param";backup=1;
+/up_param       emmc    /dev/block/by-name/up_param                 flags=display="UP Param";backup=1;subpartitionof=/param;
+/misc           emmc    /dev/block/by-name/misc                     flags=display="Misc";backup=1;
+/boot           emmc    /dev/block/by-name/boot                     flags=display="Boot";backup=1;flashimg=1;
+/recovery       emmc    /dev/block/by-name/recovery                 flags=display="Recovery";backup=1;flashimg=1;
+/dtb            emmc    /dev/block/by-name/dtb                      flags=display="DTB";backup=1;flashimg=1;
+/dtbo           emmc    /dev/block/by-name/dtbo                     flags=display="DTBO";backup=1;flashimg=1;
+/modem          emmc    /dev/block/by-name/radio                    flags=display="Modem";backup=1;
+/persistent     emmc    /dev/block/by-name/persistent               flags=display="Persistent";backup=1;
+/steady         emmc    /dev/block/by-name/steady                   flags=display="Steady";backup=1;
+/vbmeta         emmc    /dev/block/by-name/vbmeta                   flags=display="VBMeta";backup=1;flashimg=1;
+/bota3          emmc    /dev/block/by-name/bota3                    flags=display="Boot OTA 3";backup=1;subpartitionof=/bota0;
+/reserved2      emmc    /dev/block/by-name/reserved2                flags=display="Reserved 2";backup=1;
+/system_root    ext4    /dev/block/by-name/system                   flags=display="System";backup=1;wipeingui;
+/vendor         ext4    /dev/block/by-name/vendor                   flags=display="Vendor";backup=1;wipeingui;
+/product        ext4    /dev/block/by-name/product                  flags=display="Product";backup=1;wipeingui;
+/cache          ext4    /dev/block/by-name/cache                    flags=display="Cache";backup=1;wipeingui;
+/preload        emmc    /dev/block/by-name/hidden                   flags=display="Preload";backup=1;
+/omr            ext4    /dev/block/by-name/omr                      flags=display="OMR";backup=1;
+/cp_debug       emmc    /dev/block/by-name/cp_debug                 flags=display="Modem Debug";backup=1;subpartitionof=/modem
+/nad_fw         emmc    /dev/block/by-name/nad_fw                   flags=display="NAD FW";backup=1;
+/data           ext4    /dev/block/by-name/userdata                 flags=length=-20480,encryptable=footer
+/system_image   emmc    /dev/block/by-name/system                   flags=display="System Image";backup=1;flashimg=1;
+/vendor_image   emmc    /dev/block/by-name/vendor                   flags=display="Vendor Image";backup=1;flashimg=1;
+/product_image  emmc    /dev/block/by-name/product                  flags=display="Product Image";backup=1;flashimg=1;
+/external_sd    auto    /dev/block/mmcblk1p1    /dev/block/mmcblk1  flags=storage;removable;display="External SD";wipeingui;
+/usb-otg        auto    /dev/block/sda1         /dev/block/sda      flags=storage;removable;display="USB OTG";wipeingui;
